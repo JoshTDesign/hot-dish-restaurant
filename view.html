@@ -1,12 +1,74 @@
+<!-- View Tables page -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <main>
+        <div class="card" id="mainCard">
+            <div class="card-body">
+                <h1 class="card-title"><i class="fa fa-fire"></i> Hot Restaurant</h1>
+                <hr>
+                <h2 class="card-subtitle mb-2">Current Reservations and Waiting List</h2>
+                <a class="btn btn-danger card-link" href="#" role="button"><i class="fa fa-credit-card"></i> Make
+                    Reservation</a>
+                <a class="card-link" href="#" role="button" id="homeBtn"><i class="fa fa-home"></i></a>
+            </div>
+        </div>
+        <div class="card" id="tablesCard">
+            <h4 class="card-header">Current Reservations</h4>
+            <div class="card-body">
+                <!-- Table template -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Table #1</h3>
+                        <hr>
+                        <h3>ID:</h3>
+                        <h3>Name:</h3>
+                        <h3>Email:</h3>
+                        <h3>Phone:</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="waitCard">
+            <h4 class="card-header">Waiting List</h4>
+            <div class="card-body">
+                <!-- Table template -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Table #1</h3>
+                        <hr>
+                        <h3>ID:</h3>
+                        <h3>Name:</h3>
+                        <h3>Email:</h3>
+                        <h3>Phone:</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="apiLinks">
+            <ul>
+                <li><a href="#" id="clearLink">Clear Table</a></li>
+                <li><a href="#" id="tableLink">API Table Link</a></li>
+                <li><a href="#" id="waitLink">API Wait List</a></li>
+            </ul>
+        </div>
+    </main>
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </html>
