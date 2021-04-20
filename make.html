@@ -15,20 +15,45 @@
 
 <body>
     <main>
-        <div class="card">
+        <div class="card" id="mainCard">
             <div class="card-body">
                 <h1 class="card-title"><i class="fa fa-fire"></i> Hot Restaurant</h1>
                 <hr>
-                <h4 class="card-subtitle mb-2">Book your seat before they're all gone!</h4>
-                <a class="btn card-link" id="tables" href="#" role="button"><i class="fa fa-list-ul"></i> View
+                <h2 class="card-subtitle mb-2">Make your reservation</h2>
+                <a class="btn btn-primary card-link" href="#" role="button"><i class="fa fa-list-ul"></i> View
                     Tables</a>
-                <a class="btn card-link" id="reservation" href="#" role="button"><i class="fa fa-credit-card"></i> Make
-                    Reservation</a>
+                <a class="card-link" href="#" role="button" id="homeBtn"><i class="fa fa-home"></i></a>
+            </div>
+        </div>
+        <div class="card" id="formCard">
+            <h6 class="card-header">Table Reservation</h6>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone Number</label>
+                        <input type="phone" class="form-control" id="inputPhone" aria-describedby="phoneHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Unique ID</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
         <div id="apiLinks">
-            <a href="#" id="tableLink">API Table Link</a>
-            <a href="#" id="waitLink">API Wait List</a>
+            <ul>
+                <li><a href="#" id="tableLink">API Table Link</a></li>
+                <li><a href="#" id="waitLink">API Wait List</a></li>
+            </ul>
         </div>
     </main>
 
