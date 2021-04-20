@@ -119,3 +119,31 @@ server.listen(PORT, () => {
     // Log (server-side) when our server has started
     console.log(`Server listening on: http://localhost:${PORT}`);
 });
+
+
+
+
+// Basic route that sends the user first to the AJAX Page
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
+
+app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'make.html'))); //doublecheck html names
+app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));  //doublecheck html names
+
+
+const tables = [];
+const waitlist = [];
+
+app.get('/api/tables', (req, res) => res.json(tables));
+
+app.post('/api/tables', (req, res) => {
+    const newReservation = req.body;
+    console.log('New reservation made');
+    console.log(newReservation);
+  
+    characters.push(newReservation);
+    res.json(newReservation);
+  });
+
+
+
+
