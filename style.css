@@ -4,37 +4,38 @@
     padding: 0;
 }
 
-main {
-    position: relative;
+#mainCard, #tablesCard, #waitCard {
+    margin-left: 21%;
+    margin-right: 21%;
 }
 
-.card {
-    margin: 5% 5% 5% 5%;
-    background-color: #EEEEEE;
+#mainCard {
+    background-color: #E9ECEF;
     text-align: center;
 }
 
 .btn {
-    color: white;
     margin-top: 1vw;
     margin-bottom: 1vw;
 }
 
-#tables {
-    background-color: #337AB7;
-}
-
-#reservation {
-    background-color: #D9534F;
-}
-
 #apiLinks {
-    margin-left: 5%;
-    position: absolute;
-    top: 13vw;
+    margin-left: 21%;
 }
 
-#tableLink {
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+  }
+
+#tableLink, #clearLink {
     border-right: 2px solid #674F38;
     padding-right: 0.3vw;
+}
+
+#homeBtn {
+    color: black;
 }
