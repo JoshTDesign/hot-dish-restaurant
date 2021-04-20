@@ -4,9 +4,12 @@ const http = require('http');
 // Call npm packages
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 // Define the port
 const PORT = 8080;
+// Set up Express app
+const app = express();
 
 // Test function
 // const handleRequest = (request, response) => {
@@ -17,59 +20,80 @@ const PORT = 8080;
 
 // Route to the home page
 const displayHome = (res) => {
-    const myHTML = `
-    <html>
-    <body>
-    <h1>Home Page</h1>
-    <a href='/'>Home</a>
-    <a href='/reserve'>Reservations</a>
-    <a href='/table'>Waitlist</a>
-    </body>
-    </html>`;
+    fs.readFile(`home.html`, (err, data) => {
+        if (err) throw err;
+        // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
+        // an html file.
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+    });
+    // const myHTML = `
+    // <html>
+    // <body>
+    // <h1>Home Page</h1>
+    // <a href='/'>Home</a>
+    // <a href='/reserve'>Reservations</a>
+    // <a href='/table'>Waitlist</a>
+    // </body>
+    // </html>`;
 
-    // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    // // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
+    // res.writeHead(200, { 'Content-Type': 'text/html' });
 
-    // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
-    res.end(myHTML);
+    // // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
+    // res.end(myHTML);
 };
 
 //Page for active reservations
 const displayReserves = (res) => {
-    const myHTML = `
-    <html>
-    <body>
-    <h1>Reservations</h1>
-    <a href='/'>Home</a>
-    <a href='/reserve'>Reservations</a>
-    <a href='/table'>Waitlist</a>
-    </body>
-    </html>`;
+    fs.readFile(`make.html`, (err, data) => {
+        if (err) throw err;
+        // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
+        // an html file.
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+    });
+    // const myHTML = `
+    // <html>
+    // <body>
+    // <h1>Reservations</h1>
+    // <a href='/'>Home</a>
+    // <a href='/reserve'>Reservations</a>
+    // <a href='/table'>Waitlist</a>
+    // </body>
+    // </html>`;
 
-    // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    // // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
+    // res.writeHead(200, { 'Content-Type': 'text/html' });
 
-    // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
-    res.end(myHTML);
+    // // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
+    // res.end(myHTML);
 };
 
 //Page for waitlist
 const displayWait = (res) => {
-    const myHTML = `
-    <html>
-    <body>
-    <h1>Waitlist</h1>
-    <a href='/'>Home</a>
-    <a href='/reserve'>Reservations</a>
-    <a href='/table'>Waitlist</a>
-    </body>
-    </html>`;
+    fs.readFile(`view.html`, (err, data) => {
+        if (err) throw err;
+        // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
+        // an html file.
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+    });
+    // const myHTML = `
+    // <html>
+    // <body>
+    // <h1>Waitlist</h1>
+    // <a href='/'>Home</a>
+    // <a href='/reserve'>Reservations</a>
+    // <a href='/table'>Waitlist</a>
+    // </body>
+    // </html>`;
 
-    // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    // // Configure the response to return a status code of 200 (meaning everything went OK), and to be an HTML document
+    // res.writeHead(200, { 'Content-Type': 'text/html' });
 
-    // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
-    res.end(myHTML);
+    // // End the response by sending the client the myHTML string (which gets rendered as an HTML document thanks to the code above)
+    // res.end(myHTML);
 };
 
 // 404 page for if user tries to navigate to a nonexistent page
@@ -90,6 +114,7 @@ const display404 = (url, res) => {
 };
 
 // Create handleRequest file to navigate between pages
+
 const handleRequest = (req, res) => {
     // Grab request url
     const path = req.url;
@@ -139,10 +164,10 @@ app.post('/api/tables', (req, res) => {
     const newReservation = req.body;
     console.log('New reservation made');
     console.log(newReservation);
-  
+
     characters.push(newReservation);
     res.json(newReservation);
-  });
+});
 
 
 
